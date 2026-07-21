@@ -8,3 +8,4 @@ psycopg2-binary
 prometheus_fastapi_instrumentator
 python-jose==3.3.0
 passlib
+bcrypt
