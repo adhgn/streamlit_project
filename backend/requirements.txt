@@ -6,4 +6,4 @@ scikit-learn>=1.4.0
 sqlalchemy
 psycopg2-binary
 prometheus_fastapi_instrumentator
-jose
+python-jose==3.3.0
