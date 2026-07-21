@@ -242,7 +242,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
     # 💥 THIS IS THE CRITICAL LINE:
-    expose_headers=["X-Request-ID", "X-Process-Time-MS"], 
+    expose_headers=["X-Request-ID", "X-Process-Time-MS", "*"], 
 )
 
 class KaggleTelemetry(BaseModel):
