@@ -13,13 +13,13 @@ from sklearn.ensemble import GradientBoostingClassifier
 from sqlalchemy import create_engine, Column, Integer, Float, String, DateTime, Boolean, func
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
 from starlette.middleware.base import BaseHTTPMiddleware
-from fastapi_cache import FastAPICache
-from fastapi_cache.decorator import cache
-from fastapi_cache.backends.inmemory import InMemoryBackend
-from fastapi_cache.backends.redis import RedisBackend
+# from fastapi_cache import FastAPICache
+# from fastapi_cache.decorator import cache
+# from fastapi_cache.backends.inmemory import InMemoryBackend
+# from fastapi_cache.backends.redis import RedisBackend
 from prometheus_fastapi_instrumentator import Instrumentator
 from contextlib import asynccontextmanager
-from redis import asyncio as aioredis
+# from redis import asyncio as aioredis
 from fastapi.middleware.cors import CORSMiddleware
 
 from typing import Optional
@@ -172,8 +172,8 @@ async def lifespan(app: FastAPI):
     # --- Startup phase ---
     # Expose the /metrics route when the application boots up
     instrumentator.expose(app, endpoint="/metrics", tags=["Telemetry"])
-    redis = aioredis.from_url("redis://localhost:6379", encoding="utf8", decode_responses=True)
-    FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
+    # redis = aioredis.from_url("redis://localhost:6379", encoding="utf8", decode_responses=True)
+    # FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
     yield
 
 # --- 2. FASTAPI & ML MODEL CONFIG ---
